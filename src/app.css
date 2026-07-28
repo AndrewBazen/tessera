@@ -1,0 +1,48 @@
+/* src/app.css — dark fantasy theme */
+
+:root {
+    /* palette */
+    --bg: #16121f;              /* near-black violet */
+    --surface: #221c31;         /* raised panels/cards */
+    --surface-border: #3b3252;
+    --text: #e8e0cf;            /* aged parchment */
+    --text-muted: #a79db8;
+    --accent: #d4a94e;          /* antique gold */
+
+    /* rank tiers */
+    --rank-iron: #979aa5;
+    --rank-bronze: #cd7f32;
+    --rank-silver: #cfcfd6;
+    --rank-gold: #ffd700;
+    --rank-platinum: #3de0c0;
+    --rank-diamond: #7de3f4;
+    --diamond-empty: #3b3252;
+
+    /* typography */
+    --font-display: 'Palatino Linotype', 'Book Antiqua', Georgia, serif;
+    --font-body: Georgia, 'Times New Roman', serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background-color: var(--bg);
+    background-image: radial-gradient(ellipse at top, #241d36 0%, var(--bg) 65%);
+    color: var(--text);
+    font-family: var(--font-body);
+    line-height: 1.5;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-display);
+    color: var(--accent);
+    letter-spacing: 0.03em;
+}
+
+a {
+    color: var(--rank-diamond);
+}
