@@ -22,7 +22,7 @@
 
 <style>
     .track {
-        width: 100%;
+        width: 50%;
         height: 0.75rem;
         border-radius: 999px;
         background: var(--diamond-empty);
