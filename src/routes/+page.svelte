@@ -7,13 +7,7 @@
 
     let name = 'Andrew';
 
-    let defaults = [
-        makeSkill('coding', 100, 2),
-        makeSkill('writing'),
-        makeSkill('physical training', 500, 3),
-    ];
-
-    let skills = $state(browser ? loadState(defaults) : defaults);
+    let skills = $state(browser ? loadState() : []);
     $effect(() => saveState(skills));
 
     let xp = $derived(totalXp(skills));
