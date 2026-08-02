@@ -1,18 +1,25 @@
 <script lang="ts">
+    import type { LevelProgress } from "$lib/xp";
     import ProgressBar from "./ProgressBar.svelte";
 
     interface Props {
         name: string;
-        level: number;
-        fraction: number;
+        progress: LevelProgress;
     }
 
-    let { name, level, fraction }: Props = $props();
+    let { name, progress }: Props = $props();
 </script>
 
 <div class="main">
     <h1>Player: {name}</h1>
-    <h2>Current Level: {level} <ProgressBar {fraction} label="xp bar" /></h2>
+    <h2>Current Level: {progress.level} </h2>
+    <div class="bar">
+        <ProgressBar 
+            fraction={progress.fraction} 
+            label="Current progress to level {progress.level + 1}" 
+        />
+        <p class="xp-status">{progress.current}/{progress.required}</p>
+    </div>
 </div>
 
 <style>
@@ -26,5 +33,11 @@
         margin: 1rem;
         background: var(--surface);
         border: 1px solid var(--surface-border);
+    }
+
+    .bar {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
     }
 </style>

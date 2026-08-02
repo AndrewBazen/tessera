@@ -1,23 +1,27 @@
 <script lang="ts">
-    import { totalXp, levelFromXp, makeSkill, levelProgress } from "$lib/xp";
+    import { totalXp, makeSkill, levelProgress } from "$lib/xp";
     import LevelCard from "$lib/components/LevelCard.svelte";
     import SkillList from "$lib/components/SkillList.svelte";
+    import { loadState, saveState } from "$lib/persistence";
+    import { browser } from "$app/env";
 
     let name = 'Andrew';
 
-    let skills = $state([
+    let defaults = [
         makeSkill('coding', 100, 2),
         makeSkill('writing'),
         makeSkill('physical training', 500, 3),
-    ]);
+    ];
+
+    let skills = $state(browser ? loadState(defaults) : defaults);
+    $effect(() => saveState(skills));
 
     let xp = $derived(totalXp(skills));
-    let level = $derived(levelFromXp(xp));
-    let fraction = $derived(levelProgress(xp).fraction);
+    let progress = $derived(levelProgress(xp));
 </script>
 
 <div class="page-container">
-    <LevelCard {name} {level} {fraction} />
+    <LevelCard {name} {progress} />
     <SkillList {skills} />
 </div>
 

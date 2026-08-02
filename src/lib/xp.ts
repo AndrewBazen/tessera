@@ -1,7 +1,6 @@
 // src/lib/xp.ts
 import { RANKS } from './ranks';
 export const DEFAULT_BASE_XP = 50;
-export const LEVEL_CURVE_COEFFICIENT = 0.2
 const LEVEL_BASE = 100
 const LEVEL_GROWTH = 2
 
