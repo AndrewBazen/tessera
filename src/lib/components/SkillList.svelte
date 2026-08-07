@@ -17,7 +17,7 @@
     let { skills }: Props = $props();
 </script>
 
-<div class="skill-list">
+<div class="skill-list card">
     <AddSkill onadd={handleAdd} />
     <div class="skill-container">
         {#each skills as skill (skill.name) }
@@ -30,12 +30,13 @@
     .skill-list {
         display: flex;
         flex-direction: column;
-        width: 100%;
-        height: 100%;
-        border-radius: 8px;
-        padding: 1rem 1rem;
-        margin: 1rem;
-        background: var(--surface);
-        border: 1px solid var(--surface-border);
+        padding: 1.25rem 1.5rem;
+        margin: 0.5rem 1rem 1rem;
+    }
+
+    .skill-container {
+        display: flex;
+        flex-direction: column;
+        margin-top: 0.5rem;
     }
 </style>

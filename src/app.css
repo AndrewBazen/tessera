@@ -4,10 +4,13 @@
     /* palette */
     --bg: #16121f;              /* near-black violet */
     --surface: #221c31;         /* raised panels/cards */
+    --surface-raised: #2a2340;  /* card top edge, hovers */
     --surface-border: #3b3252;
+    --surface-border-lit: #4d4169;  /* rim light on card tops */
     --text: #e8e0cf;            /* aged parchment */
     --text-muted: #a79db8;
     --accent: #d4a94e;          /* antique gold */
+    --danger: #e06c6c;          /* muted ember red — errors */
 
     /* rank tiers */
     --rank-iron: #979aa5;
@@ -43,6 +46,60 @@ h1, h2, h3 {
     letter-spacing: 0.03em;
 }
 
+h1 {
+    text-shadow: 0 1px 14px rgba(212, 169, 78, 0.22);
+}
+
+/* shared card recipe — gradient surface, rim-lit top edge, soft drop */
+.card {
+    background: linear-gradient(180deg, var(--surface-raised) 0%, var(--surface) 100%);
+    border: 1px solid var(--surface-border);
+    border-top-color: var(--surface-border-lit);
+    border-radius: 12px;
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.35),
+        inset 0 1px 0 rgba(232, 224, 207, 0.05);
+}
+
 a {
     color: var(--rank-diamond);
 }
+
+/* base styles: what things LOOK like, decided once.
+   Components only add layout (flex, gap, width). */
+
+button {
+    padding: 0.35rem 0.9rem;
+    background-color: var(--surface);
+    border: 1px solid var(--surface-border);
+    border-radius: 6px;
+    color: var(--text);
+    cursor: pointer;
+    font: inherit;
+    transition: border-color 120ms ease, color 120ms ease;
+}
+
+button:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+input {
+    padding: 0.35rem 0.6rem;
+    background-color: var(--bg);
+    border: 1px solid var(--surface-border);
+    border-radius: 6px;
+    color: var(--text);
+    font: inherit;
+}
+
+input::placeholder {
+    color: var(--text-muted);
+}
+
+button:focus-visible,
+input:focus-visible {
+    outline: 2px solid var(--rank-diamond);
+    outline-offset: 2px;
+}
+

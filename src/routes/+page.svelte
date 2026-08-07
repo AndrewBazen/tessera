@@ -23,7 +23,8 @@
     .page-container {
         display: flex;
         flex-direction: column;
-        width: 100%;
-        height: 100%;
+        max-width: 40rem;
+        margin-inline: auto;
+        padding-block: 0.5rem 2rem;
     }
 </style>
